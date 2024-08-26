@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DecapCMS Admin</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Đảm bảo rằng đường dẫn này đúng -->
+    <link rel="stylesheet" href="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.css"> <!-- Đảm bảo rằng đường dẫn này đúng -->
 </head>
 <body>
     <div id="root"></div>
 
-    <!-- Bao gồm thư viện DecapCMS -->
-    <script src="path/to/decap-cms.js"></script> <!-- Thay thế bằng đường dẫn chính xác đến thư viện DecapCMS -->
+    <!-- Bao gồm thư viện DecapCMS từ CDN -->
+    <script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
 
     <!-- Script tùy chỉnh của bạn -->
     <script>
         // Đảm bảo rằng CMS đã được định nghĩa
         if (typeof CMS !== 'undefined') {
             CMS.init({
-                // Thay thế cấu hình của bạn ở đây
                 backend: {
-                    name: 'github',
+                    name: 'git-gateway', // Thay thế bằng 'github' nếu bạn sử dụng GitHub OAuth
                     repo: 'ndnk0311/de_tai_nhom_10_n', // Thay thế bằng tên người dùng và tên repository GitHub của bạn
                     branch: 'main',
                     auth_endpoint: 'https://api.github.com',
                     client_id: 'Ov23li2cJXvWLYwaL7eS', // Thay thế bằng Client ID từ GitHub OAuth
-                    client_secret: 'Ov23li2cJXvWLYwaL7eS', // Thay thế bằng Client Secret từ GitHub OAuth
+                    client_secret: '46f158af885b3558d72732c488d4d960fff61aa', // Thay thế bằng Client Secret từ GitHub OAuth
                     base_url: 'https://github.com/login/oauth/authorize',
                     auth_scope: 'repo'
                 },
