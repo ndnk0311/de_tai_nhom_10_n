@@ -1,29 +1,86 @@
-<script>
-  CMS.init({
-    config: {
-      backend: {
-        name: 'github',
-        repo: 'ndnk0311/de_tai_nhom_10_n',
-        branch: 'main',
-        auth_endpoint: 'https://api.github.com',
-        client_id: 'Ov23li2cJXvWLYwaL7eS',
-        base_url: 'https://github.com/login/oauth/authorize',
-        auth_scope: 'repo',
-      },
-      media_folder: 'assets/uploads',
-      public_folder: '/uploads',
-      collections: [
-        {
-          name: 'blog',
-          label: 'Blog',
-          folder: '_posts',
-          create: true,
-          fields: [
-            { label: 'Title', name: 'title', widget: 'string' },
-            { label: 'Body', name: 'body', widget: 'markdown' },
-          ],
-        },
-      ],
-    },
-  });
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecapCMS Admin</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Đảm bảo rằng đường dẫn này đúng -->
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Bao gồm thư viện DecapCMS -->
+    <script src="path/to/decap-cms.js"></script> <!-- Thay thế bằng đường dẫn chính xác đến thư viện DecapCMS -->
+
+    <!-- Script tùy chỉnh của bạn -->
+    <script>
+        // Đảm bảo rằng CMS đã được định nghĩa
+        if (typeof CMS !== 'undefined') {
+            CMS.init({
+                // Thay thế cấu hình của bạn ở đây
+                backend: {
+                    name: 'github',
+                    repo: 'ndnk0311/de_tai_nhom_10_n', // Thay thế bằng tên người dùng và tên repository GitHub của bạn
+                    branch: 'main',
+                    auth_endpoint: 'https://api.github.com',
+                    client_id: 'Ov23li2cJXvWLYwaL7eS', // Thay thế bằng Client ID từ GitHub OAuth
+                    client_secret: 'Ov23li2cJXvWLYwaL7eS', // Thay thế bằng Client Secret từ GitHub OAuth
+                    base_url: 'https://github.com/login/oauth/authorize',
+                    auth_scope: 'repo'
+                },
+                media_folder: 'assets/uploads',
+                public_folder: '/uploads',
+                collections: [
+                    {
+                        name: 'about',
+                        label: 'Giới Thiệu',
+                        folder: 'content/about',
+                        create: true,
+                        fields: [
+                            { label: 'Title', name: 'title', widget: 'string' },
+                            { label: 'Body', name: 'body', widget: 'markdown' }
+                        ]
+                    },
+                    {
+                        name: 'attractions',
+                        label: 'Địa Điểm Tham Quan',
+                        folder: 'content/attractions',
+                        create: true,
+                        fields: [
+                            { label: 'Title', name: 'title', widget: 'string' },
+                            { label: 'Description', name: 'description', widget: 'text' },
+                            { label: 'Image', name: 'image', widget: 'image', required: true }
+                        ]
+                    },
+                    {
+                        name: 'gallery',
+                        label: 'Thư Viện Ảnh',
+                        folder: 'content/gallery',
+                        create: true,
+                        fields: [
+                            {
+                                label: 'Images',
+                                name: 'images',
+                                widget: 'list',
+                                fields: [{ label: 'Image', name: 'image', widget: 'image', required: true }]
+                            }
+                        ]
+                    },
+                    {
+                        name: 'contact',
+                        label: 'Liên Hệ',
+                        folder: 'content/contact',
+                        create: true,
+                        fields: [
+                            { label: 'Email', name: 'email', widget: 'string' },
+                            { label: 'Address', name: 'address', widget: 'string' }
+                        ]
+                    }
+                ]
+            });
+        } else {
+            console.error('CMS is not defined.');
+        }
+    </script>
+</body>
+</html>
