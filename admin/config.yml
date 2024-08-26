@@ -1,15 +1,15 @@
 backend:
   name: github
-  repo: ndnk0311/de_tai_nhom_10_n 
+  repo: ndnk0311/de_tai_nhom_10_n  # Thay thế bằng tên người dùng và repository GitHub của bạn
   branch: main
   auth_endpoint: 'https://api.github.com'
-  client_id: 'Ov23li2cJXvWLYwaL7eS'         
-  client_secret: '46f158af885b3558d72732c488d4d960fff61aaf' 
+  client_id: 'Ov23li2cJXvWLYwaL7eS'  # Thay thế bằng Client ID từ GitHub OAuth
+  client_secret: '46f158af885b3558d72732c488d4d960fff61aaf'  # Thay thế bằng Client Secret từ GitHub OAuth
   base_url: 'https://github.com/login/oauth/authorize'
   auth_scope: 'repo'
 
-media_folder: 'assets/uploads'
-public_folder: '/uploads'
+media_folder: 'assets/uploads'  # Thư mục lưu trữ tệp truyền thông
+public_folder: '/uploads'       # Thư mục công cộng cho tệp truyền thông
 
 collections:
   - name: 'about'
