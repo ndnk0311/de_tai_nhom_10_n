@@ -1,35 +1,29 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Content Manager</title>
-    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
-  </head>
-  <body>
-    <script>
-      CMS.init({
-        config: {
-          backend: {
-            name: 'github',
-            repo: 'ndnk0311/de_tai_nhom_10_n',
-            branch: 'main',
-          },
-          media_folder: 'assets/uploads',
-          public_folder: '/uploads',
-          collections: [
-            {
-              name: 'blog',
-              label: 'Blog',
-              folder: '_posts',
-              create: true,
-              fields: [
-                { label: 'Title', name: 'title', widget: 'string' },
-                { label: 'Body', name: 'body', widget: 'markdown' },
-              ],
-            },
+<script>
+  CMS.init({
+    config: {
+      backend: {
+        name: 'github',
+        repo: 'ndnk0311/de_tai_nhom_10_n',
+        branch: 'main',
+        auth_endpoint: 'https://api.github.com',
+        client_id: 'Ov23li2cJXvWLYwaL7eS',
+        base_url: 'https://github.com/login/oauth/authorize',
+        auth_scope: 'repo',
+      },
+      media_folder: 'assets/uploads',
+      public_folder: '/uploads',
+      collections: [
+        {
+          name: 'blog',
+          label: 'Blog',
+          folder: '_posts',
+          create: true,
+          fields: [
+            { label: 'Title', name: 'title', widget: 'string' },
+            { label: 'Body', name: 'body', widget: 'markdown' },
           ],
         },
-      });
-    </script>
-  </body>
-</html>
+      ],
+    },
+  });
+</script>
